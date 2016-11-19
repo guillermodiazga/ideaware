@@ -1,0 +1,68 @@
+<section> 
+  <div>
+    <img clas="img-responsive" src="styles/images/header.png" width="100%" >
+  </div>
+
+  <h1>Lorem ipsum dolor</h1>
+  <p>Lorem ipsum dolor sit amet, harum simul pri id, ad qui graecis mediocrem concludaturque, eu munere contentiones sea. Wisi instructior at eum. Qui novum euripidis in, vim ei nusquam indoctum. An mel justo velit nonumes, nulla oporteat mandamus vel ei, case tation graeci no vis. Ex sed lorem eripuit disputando. Sit ne simul accommodare. Soluta adipisci sit eu, regione patrioque no sit.</p>
+</section>
+
+<div id="login-container" class="pre-auth panel panel-defaul text-center">
+  <p>This application requires access to your YouTube account.
+  Please <a href="" id="login-link" class="btn btn-danger">Authorize Youtube</a> to continue.
+  </p>
+</div>
+
+<div class="row panel padding" when-scrolled="">
+  <label class=" col-xs-12 col-md-3"> 
+    <input ng-model="main.query" type="text" placeholer="Search" class="search" ng-keyup="main.newSearch()"  ng-click="main.loadCategories()" placeholder="Search" />
+  </label>
+
+  <div class="col-xs-2 col-md-6 text-right" >
+    Filter by
+  </div>
+
+  <label class="col-xs-10 col-md-3 input">
+    <select ng-model="main.category" class="form-control "  ng-click="main.loadCategories()" ng-change="main.cleanVideos();main.search()">
+      <option value="all">All</option>
+      <option ng-repeat="cat in main.categories" value="{{cat.id}}">{{cat.snippet.title}}</option>
+    </select>
+  </label>
+
+</div>
+
+<div class="col-xs-12 col-md-12 panel text-center" ng-show="main.videos.length==0  && main.query.length > 0">No results</div>
+
+<div class="row padding" >
+  <div class="col-xs-6 col-md-3" ng-repeat="video in main.videos" ng-click="main.showVideo(video.id.videoId, video.snippet.title)">
+    <a href="" class="thumbnail" >
+      <img ng-src="{{video.snippet.thumbnails.medium.url}}">
+      <img src="styles/images/play-btn.png" class="play-btn">
+    </a>
+  </div>
+
+  <div ng-show="main.loading && vm.query.length > 0" class="col-xs-6 col-md-3" >
+    <a href="" class="thumbnail" >
+      Loadind videos...
+    </a>
+  </div>
+</div>
+
+<!-- Modal  -->
+<div id="modalShowVideo" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body" id="player">
+        <iframe width="100%" height="315" > </iframe>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Fin Modal  -->

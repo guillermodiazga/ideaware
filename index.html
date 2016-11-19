@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<link rel="shortcut icon" type="image/png" href="favicon.png"/>
+  <title>Search Videos</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+  <header class="container">
+
+    <img src="styles/images/logo.png">
+    <nav class="pull-right">
+      <ul>
+        <li class="btn">Work</li>
+        <li class="btn nav">About Us</li>
+        <li class="btn">Contact</li>
+      </ul>
+    </nav>
+  </header>
+
+  <div ng-app="youtubeApp"class="container">
+      <div ng-view=""></div>
+  </div>
+
+  <footer class="footer container">
+    <img clas="img-responsive" src="styles/images/footer.png" width="100%" >
+  </footer>
+
+  <div id="stopUser">
+    <div> Loading...</div>
+  </div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="//code.angularjs.org/1.4.5/angular-route.js"></script> 
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/main.js"></script>
+  <script src="scripts/youtubeApi/Auth.js"></script>
+  <script src="scripts/youtubeApi/Init.js"></script>
+  <script src="//apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+</body>
+</html>
